@@ -10,9 +10,6 @@ import java.awt.*;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 
-/**
- * Created by Alexander on 26.09.2015.
- */
 public class SlotCheatPage {
     public static WebDriver driver;
     public static void setupChromeAndGo(String link) {
@@ -71,6 +68,7 @@ public class SlotCheatPage {
         waitElementDisplayed("//div[@id='wrapper']");
         return waitElementByXpath("//div[@id='wrapper']");
     }
+
     public static void clickYes() {
         waitSec(10);
         Actions actions = new Actions(driver);
@@ -103,8 +101,6 @@ public class SlotCheatPage {
     public static void autoCheatInput(String [] cheatsMassive) {
         String[] useCheat = cheatsMassive;
         int a = cheatsMassive.length - 1;
-        clickYes();
-        clickPanelLeft();
         for(int i = 0; i <= a ; i++) {
             clickDebug();
             clickInput();
@@ -126,5 +122,19 @@ public class SlotCheatPage {
             }
             clickFire();
         }
+    }
+
+
+    public static void clickBetDecrease(int clicks) {
+        for(int i = 1; i <= clicks ; i++) {
+            Actions actions = new Actions(driver);
+            actions.moveToElement(findWrapper(), 305, 470).click().build().perform();
+            waitSec(2);
+        }
+    }
+    public static void clickOkAceVentura() {
+        Actions actions = new Actions(driver);
+        actions.moveToElement(findWrapper(), 940, 725).click().build().perform();
+        waitSec(2);
     }
 }

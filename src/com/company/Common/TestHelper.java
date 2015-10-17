@@ -19,9 +19,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Set;
 
-/**
- * Created by Alexander on 26.09.2015.
- */
 public class TestHelper {
     public static WebDriver driver;
 
